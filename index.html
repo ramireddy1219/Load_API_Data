@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Load API Data</title>
+</head>
+
+<body>
+    <form action="" autocomplete="off">
+        <label for="myFruit">Pick your favorite fruit</label>
+        <input type="text" id="myFruit" name="fruit" list="fruitList">
+
+        <datalist id="fruitList">
+            <select id="suggestion" name="altFruit">
+                <option id="listItems">Apple</option>
+                <option>Banana</option>
+                <option>Blackberry</option>
+                <option>Blueberry</option>
+                <option>Lemon</option>
+                <option>Lychee</option>
+                <option>Peach</option>
+                <option>Pear</option>
+            </select>
+        </datalist>
+    </form>
+</body>
+
+</html>
+
+<script>
+    fetch('https://reqres.in/api/users?page=2')
+        .then(res => res.json())
+        .then((out) => {
+            console.log('Json Output: ', out);
+            var arrItems = [];
+            arrItems = out;
+            console.log("Array data: ", arrItems);
+        }).catch(err => console.error(err));
+</script>
